@@ -12,6 +12,7 @@
 <p>Hola soy {{ name }} y mi edad es {{ age }} </p>
 <hr />
 
+<!-- Property binding -->
 <img [src]="img" alt="">
 <input type="text" value="Luis">
 <input type="text" [value]="name">
@@ -20,3 +21,14 @@
 <p>{{ person.name }}</p>
 <p>{{ person.age }}</p>
 <img [src]="person.avatar" [alt]='person.name'>
+
+<!-- Event Binding: click y doble click -->
+<hr />
+<button (click)="clickHandler()">Click me</button>
+<hr />
+<button (dblclick)="clickHandler()">double me</button>
+<p>(change)</p>
+<input type="number" [value]="person.age" (change)="changeHandler($event)">
+<p>(keydown)</p>
+<input type="text" [value]="person.name" (keydown)="keyDownHandler($event)">
+

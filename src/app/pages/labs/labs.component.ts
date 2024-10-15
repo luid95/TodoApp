@@ -27,4 +27,18 @@ export class LabsComponent {
     avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9F3mcx5zc3M0Wv5k0tA9f7I_-90MDyFTWpg&s'
   };
 
+  clickHandler(){
+    alert('Hola');
+  }
+
+  changeHandler(event: Event){
+    console.log(event);
+  }
+
+  keyDownHandler(event: KeyboardEvent){
+    const input = event.target as HTMLInputElement;
+    console.log(input.value);
+    
+  }
+
 }
