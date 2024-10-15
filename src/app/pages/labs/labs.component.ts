@@ -18,5 +18,13 @@ export class LabsComponent {
   ];
   name = 'Luis';
   age = 29;
+  disabled=true
+  img = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9F3mcx5zc3M0Wv5k0tA9f7I_-90MDyFTWpg&s';
+
+  person = {
+    name: 'Luis',
+    age: 29,
+    avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9F3mcx5zc3M0Wv5k0tA9f7I_-90MDyFTWpg&s'
+  };
 
 }
