@@ -15,4 +15,21 @@ export class HomeComponent {
     'Crear componente',
     'Crear  servicio',
   ]);
+
+  AddNewTask(event: Event){
+    const input = event.target as HTMLInputElement;
+    const newTask = input.value;
+
+    //Agregar un nuevo valor a mi Signal
+    this.tasks.update((tasks) => [...tasks, newTask] );
+    input.value = '';
+  }
+
+  deleteTasks(index: number){    
+    
+    this.tasks.update((tasks) => {
+      const updatedTasks = tasks.filter((task, position) => position !== index);
+      return updatedTasks;
+    });
+  }
 }
