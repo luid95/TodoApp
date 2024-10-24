@@ -54,3 +54,15 @@ Soy nicolas y soy menor de 18 años
   </code>
 </pre>
 <hr />
+
+<div [ngSwitch]="person().name">
+  <p *ngSwitchCase="'nicolas'">Yo soy Nicolas</p>
+  <p *ngSwitchCase="'julian'">Yo soy Julian</p>
+  <p *ngSwitchCase="'ana'">Yo soy Ana</p>
+  <p *ngSwitchDefault>Yo no soy nadie</p>
+</div>
+
+<hr />
+
+<input type="color" [formControl]="colorCtrl">
+<p>color: {{ colorCtrl.value }} </p>
