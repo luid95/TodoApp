@@ -51,4 +51,24 @@ export class HomeComponent {
       return updatedTasks;
     });
   }
+
+    // Método para cambiar el estado de completado de la tarea
+    toggleTaskCompleted(index: number): void {
+
+      this.tasks.update( (tasks) => {
+
+        return tasks.map((task, position) => {
+          
+          if (position === index) {
+            
+            return {
+              ...task,
+              completed: !task.completed,
+            };
+          }
+          return task;
+        });
+      });
+
+    }
 }
