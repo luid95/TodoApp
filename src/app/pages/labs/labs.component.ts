@@ -21,11 +21,11 @@ export class LabsComponent {
   disabled = true;
   img = 'https://w3schools.com/howto/img_avatar.png';
 
-  person = {
+  person = signal({
     name: 'Nicolas',
     age: 18,
     avatar: 'https://w3schools.com/howto/img_avatar.png'
-  }
+  });
 
   clickHandler() {
     alert('Hola')
