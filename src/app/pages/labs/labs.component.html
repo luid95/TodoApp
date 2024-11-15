@@ -36,33 +36,54 @@
   <h1>Signals</h1>
   <input type="text" [value]="name()" (change)="changeHandler($event)">
   <p>name: {{ name() }}</p>
+
+  <hr />
+
+  <div *ngIf="person().name === 'Nicolas' && person().age > 18; else miBloque">
+    Soy Nicolas y soy mayor de edad.
+  </div>
+  <ng-template #miBloque>
+  Soy nicolas y soy menor de 18 años
+  </ng-template>
+  <hr />
+  <pre>
+    <code>
+      {{ person() | json }}
+    </code>
+  </pre>
+  <hr />
+
+  <div [ngSwitch]="person().name">
+    <p *ngSwitchCase="'nicolas'">Yo soy Nicolas</p>
+    <p *ngSwitchCase="'julian'">Yo soy Julian</p>
+    <p *ngSwitchCase="'ana'">Yo soy Ana</p>
+    <p *ngSwitchDefault>Yo no soy nadie</p>
+  </div>
+
+  <hr />
+
+  <input type="color" [formControl]="colorCtrl">
+  <p>color: {{ colorCtrl.value }} </p>
+
+  <!-- Aplicar estilos con svg -->
+  <svg>
+    <g>
+      <rect x="0" y="0" height="100" width="100" [attr.fill]="colorCtrl.value" />
+    </g>
+  </svg>
+  <hr />
+
+  <input type="number" [formControl]="widthCtrl">
+  <span class="box" [style.width.%]="widthCtrl.value"></span>
+  <hr />
+  <p>
+    <label for="">Validacion de texto</label>
+    <br />
+    <input type="text" [formControl]="nameCtrl"> <br />
+    <span class="message-error" [class.show]="nameCtrl.invalid && nameCtrl.touched">Nombre Invalido</span>  
+  </p>
+  <p>
+    <input type="text">
+  </p>
 </div>
 
-<hr />
-
-
-<div *ngIf="person().name === 'Nicolas' && person().age > 18; else miBloque">
-  Soy Nicolas y soy mayor de edad.
-</div>
-<ng-template #miBloque>
-Soy nicolas y soy menor de 18 años
-</ng-template>
-<hr />
-<pre>
-  <code>
-    {{ person() | json }}
-  </code>
-</pre>
-<hr />
-
-<div [ngSwitch]="person().name">
-  <p *ngSwitchCase="'nicolas'">Yo soy Nicolas</p>
-  <p *ngSwitchCase="'julian'">Yo soy Julian</p>
-  <p *ngSwitchCase="'ana'">Yo soy Ana</p>
-  <p *ngSwitchDefault>Yo no soy nadie</p>
-</div>
-
-<hr />
-
-<input type="color" [formControl]="colorCtrl">
-<p>color: {{ colorCtrl.value }} </p>
